@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+    {% block content %}
+<form action="{{ model.get_delete_url }}" method="post">
+    {% csrf_token %}
+    <h3>
+        Do you really want to delete?
+    </h3>
+    <a href="{% url 'get' %}" class="btn btn-primary">Cancel</a>
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+{% endblock %}

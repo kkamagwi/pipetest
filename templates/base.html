@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+
+      {% block meta %}
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="robots" content="NONE,NOARCHIVE" />
+      {% endblock %}
+
+      <title>{% block title %}{% if name %}{{ name }} – {% endif %}Django PIPE framework{% endblock %}</title>
+
+      {% block style %}
+        {% block bootstrap_theme %}
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        {% endblock %}
+
+        {% if code_style %}<style>{{ code_style }}</style>{% endif %}
+      {% endblock %}
+
+    {% endblock %}
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="navbar navbar-static-top {% block bootstrap_navbar_variant %}navbar-inverse{% endblock %}"
+             role="navigation" aria-label="label">
+          <div class="container">
+            <span>
+              {% block branding %}
+                <a class='navbar-brand' rel="nofollow" href='https://github.com/jellyfish-tech/pipe-framework/tree/0.1.0a'>
+                    Django PIPE framework
+                </a>
+              {% endblock %}
+
+
+{% block content %}
+{% endblock %}
+
+            </span>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>
